@@ -9,12 +9,4 @@
     tools:context="com.plusbits.playfootball.activities.FootballPitchActivity"
     tools:showIn="@layout/activity_football_pitch">
 
-    <ImageView
-        android:id="@+id/add_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@mipmap/add_icon"/>
-
 </RelativeLayout>

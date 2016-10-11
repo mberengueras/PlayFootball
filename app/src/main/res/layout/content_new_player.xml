@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="player" type="com.plusbits.playfootball.models.Player" />
+        <variable name="eventsHandler" type="com.plusbits.playfootball.interfaces.NewPlayerHandler"/>
+    </data>
+
+    <RelativeLayout
     android:id="@+id/content_new_player"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,4 +20,33 @@
     tools:context="com.plusbits.playfootball.activities.NewPlayerActivity"
     tools:showIn="@layout/activity_new_player">
 
+
+    <ImageView
+        android:id="@+id/playerPhoto"
+        android:layout_width="164dip"
+        android:layout_height="164dip"
+        android:src="@mipmap/add_icon"/>
+
+    <EditText
+        android:id="@+id/playerName"
+        android:layout_width="300dp"
+        android:layout_height="@dimen/editText_height"
+        android:layout_toRightOf="@+id/playerPhoto"
+        android:hint="@string/namePlayerPlaceholder"
+        android:background="@color/editTextDefaultBgColor"
+        android:textColor="@color/editTextDefaultFontColor"
+        android:text="@={player.name}"
+        />
+
+    <Button
+        android:id="@+id/btnConfirmNewPlayer"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:layout_below="@+id/playerPhoto"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:onClick="@{() -> eventsHandler.onConfirmNewPlayerClick(player)}"
+        android:text="@string/btnConfirmNewPlayerText"/>
+
 </RelativeLayout>
+</layout>

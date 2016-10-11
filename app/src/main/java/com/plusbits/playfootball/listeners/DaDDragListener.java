@@ -1,6 +1,7 @@
 package com.plusbits.playfootball.listeners;
 
 import android.support.design.widget.CoordinatorLayout;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +33,10 @@ public class DaDDragListener implements View.OnDragListener {
                 owner.removeView(view);
                 RelativeLayout container = (RelativeLayout) v;
                 CoordinatorLayout.LayoutParams lParams = (CoordinatorLayout.LayoutParams) v.getLayoutParams();
-                view.setX(event.getX()- lParams.leftMargin);
-                view.setY(event.getY()- lParams.topMargin);
+                view.setX(event.getX() - view.getWidth()/2 - lParams.leftMargin);
+                view.setY(event.getY() - view.getHeight()/2 - lParams.topMargin);
+                Log.i("onTouch", "event.getX(): " + String.valueOf(event.getX()));
+                Log.i("onTouch", "event.getY(): " + String.valueOf(event.getY()));
                 container.addView(view);
                 view.setVisibility(View.VISIBLE);
                 break;
