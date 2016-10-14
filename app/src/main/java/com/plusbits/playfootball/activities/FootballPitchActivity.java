@@ -27,6 +27,7 @@ import com.plusbits.playfootball.utils.StorageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FootballPitchActivity extends AppCompatActivity implements PlayersListDialogListener {
     private static final String DIALOG_FRAGMENT_TAG = "PlayersListDialogFragment";
@@ -70,20 +71,23 @@ public class FootballPitchActivity extends AppCompatActivity implements PlayersL
     private void addAllPlayers(){
         playersAdded = true;
         for (int i = 0; i < Constants.NUM_PLAYERS; ++i){
-            ImageView iv = getImageView(i);
+            CircleImageView iv = getImageView(i);
             iv.setTag(R.string.PLAYER_PIECE_TAG_KEY, i);
             footballPitch.addView(iv);
         }
     }
 
-    private ImageView getImageView(int id){
-        ImageView iv = new ImageView(this);
+    private CircleImageView getImageView(int id){
+        CircleImageView iv = new CircleImageView(this);
+        iv.setBorderWidth((int) (getResources().getDimension(R.dimen.circleImageViewBorderColorWidth) / getResources().getDisplayMetrics().density));
+        iv.setBorderColor(getResources().getColor(R.color.circleImageViewBorderColor));
 
         Long playerID = SharedPreferencesUtils.getPlayerPieceId(this, id);
 
         if(playerID != -1){
             Player piecePlayer = StorageUtils.getInstance(this).getPlayer(playerID);
             iv.setImageBitmap(BitmapFactory.decodeFile(piecePlayer.getPhotoPath()));
+            iv.setTag(piecePlayer.getId());
         }
         else {
             iv.setImageResource(R.mipmap.add_icon);
@@ -144,10 +148,21 @@ public class FootballPitchActivity extends AppCompatActivity implements PlayersL
         pldFragment.show(getFragmentManager(), DIALOG_FRAGMENT_TAG);
     }
 
+    private void updateStarterPlayer(Player oldPlayer, Player newPlayer){
+        if(oldPlayer != null){
+            oldPlayer.setStarter(false);
+            StorageUtils.getInstance(this).updatePlayer(oldPlayer);
+        }
+        newPlayer.setStarter(true);
+        StorageUtils.getInstance(this).updatePlayer(newPlayer);
+    }
+
     @Override
     public void onPlayerSelected(Player player){
+        Long oldPlayerId = (Long) this.selectedImagePlayer.getTag();
         this.selectedImagePlayer.setImageBitmap(BitmapFactory.decodeFile(player.getPhotoPath()));
         this.selectedImagePlayer.setTag(player.getId());
         SharedPreferencesUtils.savePlayerPieceId(this, (int)this.selectedImagePlayer.getTag(R.string.PLAYER_PIECE_TAG_KEY), player.getId());
+        this.updateStarterPlayer(StorageUtils.getInstance(this).getPlayer(oldPlayerId), player);
     }
 }

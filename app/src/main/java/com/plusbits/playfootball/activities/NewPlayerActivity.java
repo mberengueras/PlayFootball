@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
 
 import com.nguyenhoanglam.imagepicker.activity.ImagePickerActivity;
 import com.nguyenhoanglam.imagepicker.model.Image;
@@ -22,12 +21,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewPlayerActivity extends AppCompatActivity implements NewPlayerHandler {
     public static int REQUEST_CODE_PICKER = 1;
 
     @BindView(R.id.playerPhoto)
-    ImageView playerPhoto;
+    CircleImageView playerPhoto;
 
     public Player player;
 

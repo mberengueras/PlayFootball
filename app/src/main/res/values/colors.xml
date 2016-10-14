@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3e3e3e</color>
+    <color name="colorPrimaryDark">#3e3e3e</color>
+    <color name="colorAccent">#ffffff</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="defaultScreenBgColor">#d3d4d4</color>
+    <color name="fieldBgColor">#20aa51</color>
     <color name="selectPlayerDialogColor">#66000000</color>
-    <color name="editTextDefaultBgColor">#bc080707</color>
-    <color name="editTextDefaultFontColor">#ffffff</color>
+    <color name="defaultEditTextBgColor">#ffffff</color>
+    <color name="defaultEditTextFontColor">#000000</color>
+    <color name="defaultEditTextHintFontColor">#c1c1c1</color>
+    <color name="defaultEditTextShadowColor">#8e8e8e</color>
+    <color name="circleImageViewBorderColor">#454545</color>
+
 </resources>

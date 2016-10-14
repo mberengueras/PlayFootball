@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.plusbits.playfootball.activities.FootballPitchActivity"
-    tools:showIn="@layout/activity_football_pitch">
+    tools:showIn="@layout/activity_football_pitch"
+    android:background="@color/fieldBgColor"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/field_lines"
+        />
 
 </RelativeLayout>

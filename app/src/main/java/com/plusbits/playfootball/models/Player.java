@@ -17,20 +17,23 @@ public class Player extends BaseObservable {
     @Id(autoincrement = true)
     private Long id;
 
-    public String name;
-    public String photoPath;
-    public int dorsal;
+    private String name;
+    private String photoPath;
+    private int dorsal;
+    private boolean isStarter;
 
     public Player() {
 
     }
 
-    @Generated(hash = 182076930)
-    public Player(Long id, String name, String photoPath, int dorsal) {
+    @Generated(hash = 329891521)
+    public Player(Long id, String name, String photoPath, int dorsal,
+            boolean isStarter) {
         this.id = id;
         this.name = name;
         this.photoPath = photoPath;
         this.dorsal = dorsal;
+        this.isStarter = isStarter;
     }
 
     @Bindable
@@ -68,5 +71,21 @@ public class Player extends BaseObservable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isStarter() {
+        return isStarter;
+    }
+
+    public void setStarter(boolean starter) {
+        isStarter = starter;
+    }
+
+    public boolean getIsStarter() {
+        return this.isStarter;
+    }
+
+    public void setIsStarter(boolean isStarter) {
+        this.isStarter = isStarter;
     }
 }

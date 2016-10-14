@@ -21,10 +21,12 @@
     tools:showIn="@layout/activity_new_player">
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/playerPhoto"
         android:layout_width="164dip"
         android:layout_height="164dip"
+        app:civ_border_width="@dimen/circleImageViewBorderColorWidth"
+        app:civ_border_color="@color/circleImageViewBorderColor"
         android:src="@mipmap/add_icon"/>
 
     <EditText
@@ -33,8 +35,10 @@
         android:layout_height="@dimen/editText_height"
         android:layout_toRightOf="@+id/playerPhoto"
         android:hint="@string/namePlayerPlaceholder"
-        android:background="@color/editTextDefaultBgColor"
-        android:textColor="@color/editTextDefaultFontColor"
+        android:background="@color/defaultEditTextBgColor"
+        android:textColor="@color/defaultEditTextFontColor"
+        android:textColorHint="@color/defaultEditTextHintFontColor"
+        android:shadowColor="@color/defaultEditTextShadowColor"
         android:text="@={player.name}"
         />
 
@@ -42,9 +46,10 @@
         android:id="@+id/btnConfirmNewPlayer"
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btn_height"
-        android:layout_below="@+id/playerPhoto"
         android:layout_centerHorizontal="true"
-        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textAlignment="center"
         android:onClick="@{() -> eventsHandler.onConfirmNewPlayerClick(player)}"
         android:text="@string/btnConfirmNewPlayerText"/>
 

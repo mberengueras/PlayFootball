@@ -44,6 +44,10 @@ public class StorageUtils {
         playerDao = daoSession.getPlayerDao();
     }
 
+    public void updatePlayer(Player player){
+        playerDao.update(player);
+    }
+
     public void savePlayer(Player player){
         playerDao.insert(player);
     }
@@ -58,5 +62,12 @@ public class StorageUtils {
 
     public ArrayList<Player> getAllPlayers(){
         return new ArrayList<>(playerDao.loadAll());
+    }
+
+    public ArrayList<Player> getAllNotStarterPlayers(){
+        return new ArrayList<>(playerDao.queryBuilder()
+                .where(PlayerDao.Properties.IsStarter.eq(false))
+                .orderAsc(PlayerDao.Properties.Dorsal)
+                .list());
     }
 }
