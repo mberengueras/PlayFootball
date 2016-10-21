@@ -4,11 +4,12 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -46,14 +47,6 @@ public class FootballPitchActivity extends AppCompatActivity implements PlayersL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToNewPlayerActivity();
-            }
-        });
-
         ButterKnife.bind(this);
         //icon.setOnTouchListener(new DaDTouchListener());
         footballPitch.setOnDragListener(new DaDDragListener());
@@ -66,6 +59,26 @@ public class FootballPitchActivity extends AppCompatActivity implements PlayersL
                         if(!playersAdded) addAllPlayers();
                     }
                 });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu_football_pitch);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.action_new_player) {
+            this.goToNewPlayerActivity();
+        }
+        else if(item.getItemId() == R.id.action_players_list) {
+            this.goToPlayerListActivity();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void addAllPlayers(){
@@ -139,6 +152,11 @@ public class FootballPitchActivity extends AppCompatActivity implements PlayersL
 
     private void goToNewPlayerActivity(){
         Intent intent = new Intent(this, NewPlayerActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToPlayerListActivity(){
+        Intent intent = new Intent(this, PlayersListActivity.class);
         startActivity(intent);
     }
 

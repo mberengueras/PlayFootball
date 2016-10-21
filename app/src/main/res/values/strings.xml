@@ -5,12 +5,20 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_football_pitch">Play Football</string>
     <string name="title_activity_new_player">Nou jugador</string>
+    <string name="title_go_to_activity_players_list">Llista Jugadors</string>
     <string name="title_activity_detail_player">Detall del jugadory</string>
     <string name="namePlayerPlaceholder">Nom del jugador</string>
     <string name="btnConfirmNewPlayerText">Crear jugador</string>
+    <string name="title_action_save_list">Guardar convocatòria</string>
     <string name="selectPlayerDialogTitle">Seleccionar un jugador</string>
     <string name="selectPlayerDialogMsg">Seleccioni un jugador del següent llistat:</string>
 
-    "
+    <string name="availablePlayersListTitle">Jugadors convocats</string>
+    <string name="injuredPlayersListTitle">Jugadors lesionats</string>
+    <string name="sanctionedPlayersListTitle">Jugadors sancionats</string>
+    <string name="notCalledPlayersListTitle">Jugadors no convocats</string>
+
+
     <string name="PLAYER_PIECE_TAG_KEY">player_piece_tag_key</string>
+    <string name="title_activity_players_list">PlayersListActivity</string>
 </resources>

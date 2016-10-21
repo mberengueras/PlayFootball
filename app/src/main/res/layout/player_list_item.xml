@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/playerItemMainView"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/playerListIcon"
+        android:layout_width="@dimen/playerListIconSize"
+        android:layout_height="@dimen/playerListIconSize"
+        app:civ_border_width="@dimen/circleImageViewPlayersListBorderColorWidth"
+        app:civ_border_color="@color/circleImageViewBorderColor"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:src="@mipmap/add_icon" >
+    </de.hdodenhof.circleimageview.CircleImageView>>
+
+    <TextView
+        android:id="@+id/playerListName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/playerListIcon"
+        android:layout_marginLeft="12dip"
+        android:textSize="@dimen/playerListTextFontSize"
+        android:layout_centerVertical="true">
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/playerStateRG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="1dp"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_state_available"
+            android:background="@drawable/player_state_available_toggle_btn_style"
+            android:button="@null"
+            android:checked="true"
+            android:layout_marginRight="@dimen/playerListRadioButtonMargin"
+            android:layout_width="@dimen/playerListRadioButtonSize"
+            android:layout_height="@dimen/playerListRadioButtonSize" />
+
+        <RadioButton
+            android:id="@+id/rb_state_injured"
+            android:background="@drawable/player_state_injured_toggle_btn_style"
+            android:button="@null"
+            android:layout_marginRight="@dimen/playerListRadioButtonMargin"
+            android:layout_width="@dimen/playerListRadioButtonSize"
+            android:layout_height="@dimen/playerListRadioButtonSize" />
+
+        <RadioButton
+            android:id="@+id/rb_state_sanctioned"
+            android:background="@drawable/player_state_sanctioned_toggle_btn_style"
+            android:button="@null"
+            android:layout_marginRight="@dimen/playerListRadioButtonMargin"
+            android:layout_width="@dimen/playerListRadioButtonSize"
+            android:layout_height="@dimen/playerListRadioButtonSize" />
+
+        <RadioButton
+            android:id="@+id/rb_state_not_called"
+            android:background="@drawable/player_state_not_called_toggle_btn_style"
+            android:button="@null"
+            android:layout_marginRight="@dimen/playerListRadioButtonMargin"
+            android:layout_width="@dimen/playerListRadioButtonSize"
+            android:layout_height="@dimen/playerListRadioButtonSize" />
+    </RadioGroup>
+
+</RelativeLayout>

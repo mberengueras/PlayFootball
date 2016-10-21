@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_players_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.plusbits.playfootball.activities.PlayersListActivity"
+    tools:showIn="@layout/activity_players_list"
+    >
+
+    <LinearLayout
+        android:id="@+id/playersListContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <ListView
+            android:id="@+id/playersList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/playersCallUpContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:orientation="vertical"
+        android:background="@color/ScreenCallUpBackground"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/availablePlayersListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTitleTextView"
+            android:text="@string/availablePlayersListTitle"/>
+        <ListView
+            android:id="@+id/availablePlayersList"
+            android:layout_below="@+id/availablePlayersListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/injuredPlayersListTitle"
+            android:layout_below="@+id/availablePlayersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTitleTextView"
+            android:text="@string/injuredPlayersListTitle"/>
+        <ListView
+            android:id="@+id/injuredPlayersList"
+            android:layout_below="@+id/injuredPlayersListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/sanctionedPlayersListTitle"
+            android:layout_below="@+id/injuredPlayersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTitleTextView"
+            android:text="@string/sanctionedPlayersListTitle"/>
+        <ListView
+            android:id="@+id/sanctionedPlayersList"
+            android:layout_below="@+id/sanctionedPlayersListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/notCalledPlayersListTitle"
+            android:layout_below="@+id/sanctionedPlayersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DefaultTitleTextView"
+            android:text="@string/notCalledPlayersListTitle"/>
+        <ListView
+            android:id="@+id/notCalledPlayersList"
+            android:layout_below="@+id/notCalledPlayersListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</RelativeLayout>

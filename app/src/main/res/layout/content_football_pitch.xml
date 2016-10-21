@@ -11,6 +11,76 @@
     android:background="@color/fieldBgColor"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="8"
+        android:orientation="vertical">
+
+    <View
+        android:id="@+id/stripe_one"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fieldBgColor2"  />
+
+    <View
+        android:id="@+id/stripe_two"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"  />
+
+    <View
+        android:id="@+id/stripe_three"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fieldBgColor2"  />
+
+    <View
+        android:id="@+id/stripe_four"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"  />
+
+    <View
+        android:id="@+id/center_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/fieldLinesColors"  />
+
+    <View
+        android:id="@+id/stripe_five"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fieldBgColor2"  />
+
+    <View
+        android:id="@+id/stripe_six"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"  />
+
+    <View
+        android:id="@+id/stripe_seven"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fieldBgColor2"  />
+
+    <View
+        android:id="@+id/stripe_eight"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"  />
+
+    </LinearLayout>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

@@ -23,8 +23,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/playerPhoto"
-        android:layout_width="164dip"
-        android:layout_height="164dip"
+        android:layout_width="156dip"
+        android:layout_height="156dip"
         app:civ_border_width="@dimen/circleImageViewBorderColorWidth"
         app:civ_border_color="@color/circleImageViewBorderColor"
         android:src="@mipmap/add_icon"/>
@@ -34,6 +34,8 @@
         android:layout_width="300dp"
         android:layout_height="@dimen/editText_height"
         android:layout_toRightOf="@+id/playerPhoto"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="4dip"
         android:hint="@string/namePlayerPlaceholder"
         android:background="@color/defaultEditTextBgColor"
         android:textColor="@color/defaultEditTextFontColor"

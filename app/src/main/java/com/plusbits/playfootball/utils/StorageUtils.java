@@ -8,7 +8,10 @@ import com.plusbits.playfootball.models.DaoSession;
 import com.plusbits.playfootball.models.Player;
 import com.plusbits.playfootball.models.PlayerDao;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mberengueras on 06/10/2016.
@@ -60,6 +63,10 @@ public class StorageUtils {
         return playerDao.load(id);
     }
 
+    public void savePlayers(List<Player> players){
+        playerDao.updateInTx(players);
+    }
+
     public ArrayList<Player> getAllPlayers(){
         return new ArrayList<>(playerDao.loadAll());
     }
@@ -69,5 +76,12 @@ public class StorageUtils {
                 .where(PlayerDao.Properties.IsStarter.eq(false))
                 .orderAsc(PlayerDao.Properties.Dorsal)
                 .list());
+    }
+
+    public ArrayList<Player> getAllAvailablePlayers(){
+        QueryBuilder qb = playerDao.queryBuilder();
+        qb.where(PlayerDao.Properties.State.eq(Constants.PLAYER_STATES.AVAILABLE.name()), PlayerDao.Properties.IsStarter.eq(false));
+        List players = qb.list();
+        return new ArrayList<>(players);
     }
 }

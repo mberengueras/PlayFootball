@@ -25,6 +25,10 @@
         <activity
             android:name=".activities.DetailPlayerActivity"
             android:label="@string/title_activity_detail_player"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PlayersListActivity"
+            android:label="@string/title_activity_players_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

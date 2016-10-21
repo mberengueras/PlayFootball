@@ -52,7 +52,7 @@ public class PlayersListDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final ArrayList<Player> playersArr = StorageUtils.getInstance(this.getActivity()).getAllNotStarterPlayers();
+        final ArrayList<Player> playersArr = StorageUtils.getInstance(this.getActivity()).getAllAvailablePlayers();
         CharSequence[] items = this.players2Items(playersArr);
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
         builder.setTitle(R.string.selectPlayerDialogTitle)

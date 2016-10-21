@@ -7,11 +7,19 @@
     <color name="black_overlay">#66000000</color>
     <color name="defaultScreenBgColor">#d3d4d4</color>
     <color name="fieldBgColor">#20aa51</color>
+    <color name="fieldBgColor2">#1fa14d</color>
+    <color name="fieldLinesColors">#d2ffffff</color>
     <color name="selectPlayerDialogColor">#66000000</color>
     <color name="defaultEditTextBgColor">#ffffff</color>
     <color name="defaultEditTextFontColor">#000000</color>
     <color name="defaultEditTextHintFontColor">#c1c1c1</color>
     <color name="defaultEditTextShadowColor">#8e8e8e</color>
     <color name="circleImageViewBorderColor">#454545</color>
+    <color name="playerStateAvailableColor">#00ff11</color>
+    <color name="playerStateInjuredColor">#f90000</color>
+    <color name="playerStateSanctionedColor">#ffbb00</color>
+    <color name="playerStateNotCalledColor">#f7f300</color>
+
+    <color name="ScreenCallUpBackground">#e8f4e5</color>
 
 </resources>

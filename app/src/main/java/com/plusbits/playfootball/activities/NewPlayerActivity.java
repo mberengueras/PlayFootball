@@ -41,7 +41,6 @@ public class NewPlayerActivity extends AppCompatActivity implements NewPlayerHan
 
         ActivityNewPlayerBinding binding  = DataBindingUtil.setContentView(this, R.layout.activity_new_player);
         //ContentNewPlayerBinding binding  = DataBindingUtil.setContentView(this, R.layout.activity_new_player);
-        //this.player.setName("prova");
         binding.setPlayer(this.player);
         binding.setEventsHandler(this);
 
