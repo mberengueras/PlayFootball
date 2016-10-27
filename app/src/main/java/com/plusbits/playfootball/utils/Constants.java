@@ -8,6 +8,7 @@ public class Constants {
     //Global constants
     public static final int NUM_PLAYERS = 11;
     public static final int PLAYER_ICON_SIZE = 64;
+    public static final int MAX_PLAYER_NUMBER = 25;
 
     //Default constants
     //Players postions in percent

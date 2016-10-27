@@ -14,10 +14,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UIUtils {
     public static void setPlayerImageBorderColor(Context context, CircleImageView imageView, Player player) {
+        UIUtils.setPlayerImageBorderColor(context, imageView, player, false);
+    }
+
+    public static void setPlayerImageBorderColor(Context context, CircleImageView imageView, Player player, boolean ignoreAvailable) {
         if (player == null) return;
         switch (player.getState()) {
             case AVAILABLE:
-                imageView.setBorderColor(((Activity)context).getResources().getColor(R.color.playerStateAvailableColor));
+                if (!ignoreAvailable) imageView.setBorderColor(((Activity)context).getResources().getColor(R.color.playerStateAvailableColor));
                 break;
             case INJURED:
                 imageView.setBorderColor(((Activity)context).getResources().getColor(R.color.playerStateInjuredColor));

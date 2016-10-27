@@ -8,10 +8,21 @@
     <string name="title_go_to_activity_players_list">Llista Jugadors</string>
     <string name="title_activity_detail_player">Detall del jugadory</string>
     <string name="namePlayerPlaceholder">Nom del jugador</string>
+    <string name="observationsPlayerPlaceholder">Observacions</string>
+    <string name="numberPlayerText">Dorsal del jugador:</string>
     <string name="btnConfirmNewPlayerText">Crear jugador</string>
     <string name="title_action_save_list">Guardar convocatòria</string>
+    <string name="title_action_save_formation">Guardar formació</string>
+    <string name="title_action_save_as_formation">Guardar formació com...</string>
+    <string name="title_action_load_default_formation">Carregar formació per defecte</string>
+    <string name="title_action_load_formation">Carregar formació...</string>
     <string name="selectPlayerDialogTitle">Seleccionar un jugador</string>
     <string name="selectPlayerDialogMsg">Seleccioni un jugador del següent llistat:</string>
+
+    <string name="saveFormationDialogTitle">Guardar formació</string>
+    <string name="saveFormationDialogMsg">Introdueix un nom per guardar la formació</string>
+    <string name="saveFormationDialogBtnText">Confirmar</string>
+    <string name="saveFormationDialogEditTextHint">Nom</string>
 
     <string name="availablePlayersListTitle">Jugadors convocats</string>
     <string name="injuredPlayersListTitle">Jugadors lesionats</string>
@@ -21,4 +32,12 @@
 
     <string name="PLAYER_PIECE_TAG_KEY">player_piece_tag_key</string>
     <string name="title_activity_players_list">PlayersListActivity</string>
+
+    <!-- Toast messages -->
+    <string name="toast_player_created">Jugador creat</string>
+    <string name="toast_formation_saved">Formació guardada</string>
+    <string name="toast_formation_loaded">Formació carregada</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

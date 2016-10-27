@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.nguyenhoanglam.imagepicker.activity.ImagePickerActivity;
 import com.nguyenhoanglam.imagepicker.model.Image;
@@ -29,6 +31,9 @@ public class NewPlayerActivity extends AppCompatActivity implements NewPlayerHan
     @BindView(R.id.playerPhoto)
     CircleImageView playerPhoto;
 
+    @BindView(R.id.numberSpinner)
+    Spinner numbersSpinner;
+
     public Player player;
 
     private String photoPath;
@@ -48,6 +53,13 @@ public class NewPlayerActivity extends AppCompatActivity implements NewPlayerHan
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.initSpinners();
+    }
+
+    private void initSpinners(){
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, StorageUtils.getInstance(this).getAllAvailableNumbers());
+        numbersSpinner.setAdapter(adapter);
     }
 
     @OnClick(R.id.playerPhoto)

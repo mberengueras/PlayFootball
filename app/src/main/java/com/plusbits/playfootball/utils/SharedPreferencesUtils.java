@@ -14,6 +14,7 @@ public class SharedPreferencesUtils {
     public static final String PREFS_NAME = "MyPrefsFile";
 
     public static final String PLAYER_PIECE_ID_KEY = "player_piece_id_key";
+    public static final String CURRENT_FORMATION_ID_KEY = "player_piece_id_key";
 
     public static ArrayList<Pair> getPlayerPiecesPositions(){
         return null;
@@ -30,5 +31,18 @@ public class SharedPreferencesUtils {
         SharedPreferences settings = activity.getSharedPreferences(PREFS_NAME, 0);
         Long playerId = settings.getLong(PLAYER_PIECE_ID_KEY + "_" + pieceTag, -1);
         return playerId;
+    }
+
+    public static void saveCurrentFormationId(Activity activity, Long formationId) {
+        SharedPreferences settings = activity.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putLong(CURRENT_FORMATION_ID_KEY, formationId);
+        editor.commit();
+    }
+
+    public static Long getCurrentSavedFormationId(Activity activity){
+        SharedPreferences settings = activity.getSharedPreferences(PREFS_NAME, 0);
+        Long formationId = settings.getLong(CURRENT_FORMATION_ID_KEY, -1);
+        return formationId;
     }
 }

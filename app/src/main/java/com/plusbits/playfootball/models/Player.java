@@ -10,6 +10,7 @@ import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Unique;
 import org.greenrobot.greendao.converter.PropertyConverter;
 
 /**
@@ -22,7 +23,9 @@ public class Player extends BaseObservable {
 
     private String name;
     private String photoPath;
-    private int dorsal;
+    private String observations;
+    @Unique
+    private int number;
     private boolean isStarter;
 
     @Convert(converter = PlayerStateConverter.class, columnType = String.class)
@@ -32,13 +35,14 @@ public class Player extends BaseObservable {
 
     }
 
-    @Generated(hash = 343664862)
-    public Player(Long id, String name, String photoPath, int dorsal, boolean isStarter,
+    @Generated(hash = 376343751)
+    public Player(Long id, String name, String photoPath, String observations, int number, boolean isStarter,
             Constants.PLAYER_STATES state) {
         this.id = id;
         this.name = name;
         this.photoPath = photoPath;
-        this.dorsal = dorsal;
+        this.observations = observations;
+        this.number = number;
         this.isStarter = isStarter;
         this.state = state;
     }
@@ -63,13 +67,21 @@ public class Player extends BaseObservable {
     }
 
     @Bindable
-    public int getDorsal() {
-        return dorsal;
+    public int getNumber() {
+        return number;
     }
 
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
-        notifyPropertyChanged(BR.dorsal);
+    public void setNumber(int number) {
+        this.number = number;
+        notifyPropertyChanged(BR.number);
+    }
+
+    public String getObservations() {
+        return observations;
+    }
+
+    public void setObservations(String observations) {
+        this.observations = observations;
     }
 
     public Long getId() {

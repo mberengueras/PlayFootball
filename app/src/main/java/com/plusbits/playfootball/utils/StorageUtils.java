@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.plusbits.playfootball.models.DaoMaster;
 import com.plusbits.playfootball.models.DaoSession;
+import com.plusbits.playfootball.models.Formation;
+import com.plusbits.playfootball.models.FormationDao;
 import com.plusbits.playfootball.models.Player;
 import com.plusbits.playfootball.models.PlayerDao;
 
@@ -25,6 +27,7 @@ public class StorageUtils {
     private DaoMaster daoMaster;
     private DaoSession daoSession;
     private PlayerDao playerDao;
+    private FormationDao formationDao;
 
     public StorageUtils(){
 
@@ -45,8 +48,12 @@ public class StorageUtils {
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
         playerDao = daoSession.getPlayerDao();
+        formationDao = daoSession.getFormationDao();
     }
 
+    /**
+     * Methods to manage player's db
+     * */
     public void updatePlayer(Player player){
         playerDao.update(player);
     }
@@ -74,7 +81,7 @@ public class StorageUtils {
     public ArrayList<Player> getAllNotStarterPlayers(){
         return new ArrayList<>(playerDao.queryBuilder()
                 .where(PlayerDao.Properties.IsStarter.eq(false))
-                .orderAsc(PlayerDao.Properties.Dorsal)
+                .orderAsc(PlayerDao.Properties.Number)
                 .list());
     }
 
@@ -83,5 +90,38 @@ public class StorageUtils {
         qb.where(PlayerDao.Properties.State.eq(Constants.PLAYER_STATES.AVAILABLE.name()), PlayerDao.Properties.IsStarter.eq(false));
         List players = qb.list();
         return new ArrayList<>(players);
+    }
+
+    public String[] getAllAvailableNumbers(){
+        List<Player> players = playerDao.loadAll();
+        ArrayList<String> numbers = new ArrayList<String>();
+        for (int i = 0; i < Constants.MAX_PLAYER_NUMBER; ++i) numbers.add(String.valueOf(i));
+        for (Player player: players) numbers.remove(String.valueOf(player.getNumber()));
+        String[] arrRet = new String[numbers.size()];
+        for (int i = 0; i < numbers.size(); ++i) arrRet[i] = numbers.get(i);
+        return arrRet;
+    }
+
+    /**
+     * Methods to manage formation's db
+     * */
+    public void saveFormation(Formation formation){
+        formationDao.save(formation);
+    }
+
+    public void removeFormation(Formation formation){
+        formationDao.deleteByKey(formation.getId());
+    }
+
+    public void updateFormation(Formation formation){
+        formationDao.update(formation);
+    }
+
+    public Formation getFormation(Long id) {
+        return formationDao.load(id);
+    }
+
+    public ArrayList<Formation> getAllFormations(){
+        return new ArrayList<>(formationDao.loadAll());
     }
 }

@@ -13,4 +13,34 @@
         android:title="@string/title_go_to_activity_players_list"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/action_save_formation"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/title_action_save_formation"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_save_as_formation"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/title_action_save_as_formation"
+        app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/action_load_formation"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/title_action_load_formation"
+        app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/action_load_default_formation"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/title_action_load_default_formation"
+        app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/action_show_drawing_view"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="Activa/desactiva dibuix"
+        app:showAsAction="collapseActionView"/>
+
 </menu>
